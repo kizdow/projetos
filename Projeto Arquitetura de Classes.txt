@@ -1,0 +1,18 @@
+-automoveis clas,
+atributos {
+-marca
+-modelo
+}
+
+function tempoAteAcao(acao){
+  tempoEntreAcao = importar tempo de uma, acao, para outra 
+  tempodesdeAcao = importar tempo desde a última, acao
+  if (tempoEntreAcoa < tempoDesdeAcao){
+    printar (hora de fazer uma + acao)
+  } else{
+    printar (faltam + tempoEntreAcao-tempoDesdeAcao + dias até a proxima + acao)
+  }
+}
+
+
+
