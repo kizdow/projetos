@@ -15,12 +15,21 @@
     </div>
 <script>
     usuario = [
-        {user:'felipe',password:123}
+        {user:"felipe",password:123},
+        {user:"lucas",password:123}
         ];
 
-    function validarLogin () {  
-        if (document.getElementById("userInput").value == usuario.user) and (document.getElementById("senhaInput").value == usuarios.password);{ 
-            window.location.href = "file:///C:/Users/MAQ08/Desktop/felipe/gitbash/projetos/Projeto Integrador/Eventos.html";               
+    function validarLogin () { 
+        let userAns = document.getElementById("userInput").value
+        let passAns = document.getElementById("senhaInput").value
+        
+        for ( i = 0; i < usuario.length; i++) {
+            let userArrey = usuario[i].user;
+            let passArrey = usuario[i].password;
+
+            if ((userAns == userArrey) && (passAns == passArrey)){ 
+                window.location.href = "file:///C:/Users/MAQ08/Desktop/felipe/gitbash/projetos/Projeto Integrador/Eventos.html";             
+            }
         }
     };  
 
