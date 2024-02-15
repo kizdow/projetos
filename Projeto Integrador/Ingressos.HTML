@@ -9,17 +9,22 @@
 <script>
 
 arreyTeste = [
-    {event:"evento 1",typeI:"vip"},
-    {event:"evento 2",typeI:"standart"}
-]
+    {event:"evento 1",typeT:"vip"},
+    {event:"evento 2",typeT:"standart"}
+];
 
-for (i=0; i>arreyTeste.length ;i++)
-    var eventT = arreyTeste.event(i)
-    var typeT =  arreyTeste.typeI(i)
+let lista = ""
+for (i=0; i < arreyTeste.length ;i++) {
+    let eventFor = arreyTeste[i].event;
+    let typeFor =  arreyTeste[i].typeT;
     
-    document.getElementById("ingressos").innerHTML =
-    eventT+typeT+"<br>"+" - "+"<button onclick =\" gerarQR\">Gerar código QR</button>";
+    lista += eventFor+" "+typeFor+" - "+"<button onclick =\" gerarCodigo\">Gerar código</button><br>";
+};
+document.getElementById("ingressos").innerHTML = lista;
 
+function gerarCodigo() {
+    
+};
 
 </script>    
 </boby>   
