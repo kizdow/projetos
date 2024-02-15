@@ -4,9 +4,21 @@
 </head>   
 <boby>
 <h1>Seus Ingressos</h1>
-<div id="ingressos"></div>
+<div id="ingressos">
+</div>
 <script>
 
+arreyTeste = [
+    {event:"evento 1",typeI:"vip"},
+    {event:"evento 2",typeI:"standart"}
+]
+
+for (i=0; i>arreyTeste.length ;i++)
+    var eventT = arreyTeste.event(i)
+    var typeT =  arreyTeste.typeI(i)
+    
+    document.getElementById("ingressos").innerHTML =
+    eventT+typeT+"<br>"+" - "+"<button onclick =\" gerarQR\">Gerar código QR</button>";
 
 
 </script>    
