@@ -3,8 +3,36 @@
 <head>    
 </head>
 <boby>
+
+<h1>seleção de ingressos</h1>
+<div id="ingressos">
+</div>
+<br><br>
+<h3>valor</h3>
+<div id = valor></div>
+<button onclick="pagar()">Pagar</button>
+
 <script>
-    
+
+ingressos = [
+    {event:"evento 1",value:32.50},
+    {event:"evento 2",value:50.00},
+    {event:"evento 3",value:39.99}
+];
+
+let soma = 0
+
+for (i=0;i<ingressos.length;i++) {
+    soma += ingressos[i].value
+}
+soma.tofixed(2);
+document.getElementById("valor").innerHTML = soma;
+
+function pagar() {
+    window.alert ("valor pago, os ingressos foram adicionados a sua biblioteca, obrigado")
+    window.location.href = "file:///C:/Users/MAQ08/Desktop/felipe/gitbash/projetos/Projeto Integrador/Eventos.html"
+}
+
 </script>    
 </boby>
 </html>
