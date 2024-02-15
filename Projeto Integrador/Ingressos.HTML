@@ -18,12 +18,12 @@ for (i=0; i < arreyTeste.length ;i++) {
     let eventFor = arreyTeste[i].event;
     let typeFor =  arreyTeste[i].typeT;
     
-    lista += eventFor+" "+typeFor+" - "+"<button onclick =\" gerarCodigo\">Gerar código</button><br>";
+    lista += eventFor+" "+typeFor+" - "+"<button onclick =\" gerarCodigo()\">Gerar código</button><br>";
 };
 document.getElementById("ingressos").innerHTML = lista;
 
 function gerarCodigo() {
-    
+    window.alert("código")
 };
 
 </script>    
