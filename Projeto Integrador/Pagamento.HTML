@@ -3,30 +3,33 @@
 <head>    
 </head>
 <boby>
-
-<h1>seleção de ingressos</h1>
 <div id="ingressos">
 </div>
-<br><br>
-<h4>valor total dos ingressos</h4>
-<div id = valor></div>
+<h3>valor total dos ingressos</h3> 
+<div id = precoIngresso></div>  
+<h3>valor total dos ingressos</h3> 
+<div id = valorTotal></div> <br>
 <button onclick="pagar()">Pagar</button>
 
 <script>
-
 ingressos = [
     {event:"evento 1",value:32.50},
     {event:"evento 2",value:50.00},
+    {event:"evento 2",value:78.00},
     {event:"evento 3",value:39.99}
 ];
 
-let soma = 0
+let valores = ""
+for (i=0; i < ingressos.length; i++) {
+    valores += ingressos[i].value + " " + ingressos[i].event + "<br>" 
+}
+document.getElementById("precoIngresso").innerHTML = valores
 
+let soma = 0
 for (i=0;i<ingressos.length;i++) {
     soma += ingressos[i].value
 }
-
-document.getElementById("valor").innerHTML = soma.toFixed(2);
+document.getElementById("valorTotal").innerHTML = soma.toFixed(2);
 
 function pagar() {
     window.alert ("valor pago, os ingressos foram adicionados a sua biblioteca, obrigado")
