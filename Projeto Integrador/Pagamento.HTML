@@ -20,19 +20,20 @@ ingressos = [
     {assento:"Assento 3",value:50.00},
     {assento:"Assento 4",value:50.00}
 ];
-carrinho = []
+carrinho = [{value:0}]
 
 
 
 let valores = ""
 for (i=0; i < ingressos.length; i++) {
-    valores += "R$"+ingressos[i].value + "  " + ingressos[i].assento +" - "+"<button onclick=\"compra()\">Comprar</button><br>" 
+    valores += "R$"+ingressos[i].value + "  " + ingressos[i].assento +" - "+"<button onclick=\"compra("+i+")\">Comprar</button><br>" 
 }
 document.getElementById("precoIngresso").innerHTML = valores
 
 function compra() {
+    carrinho.push(ingressos[i].value)
+    console.log
     document.getElementById("carrinhoT").innerHTML = "carrinho de compras" +"<br>";
-    console.log('1')
 };
 
 let soma = 0
