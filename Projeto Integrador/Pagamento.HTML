@@ -2,51 +2,74 @@
 <html>
 <head>    
 </head>
-<boby>
+<body onload="exibirIngressos()">
+
 <div id="ingressos">
 </div>
-<h3>Assentos</h3> 
-<div id = precoIngresso></div>  
-<div id = valorTotal></div> 
-<h3 id = carrinhoT></h3>
-<div id = carrinho></div> 
-<h3>valor total dos ingressos</h3> 
+<h3>Assentos Disponiveis</h3> 
+<div id="precoIngresso"></div>  
+<h3>Carrinho de Compras</h3>
+<div id="carrinho"></div> <br>
+<button onclick="limpar()">Limpar Carrinho</button>
+<h3>Valor total dos ingressos</h3> 
+<div id="valorTotal"></div> <br>
 <button onclick="pagar()">Pagar</button>    
 
 <script>
-ingressos = [
-    {assento:"Assento 1",value:50.00},
-    {assento:"Assento 2",value:50.00},
-    {assento:"Assento 3",value:50.00},
-    {assento:"Assento 4",value:50.00}
+let ingressos = [
+    {assento:"Assento 1", value:50.00},
+    {assento:"Assento 2", value:50.00},
+    {assento:"Assento 3", value:50.00},
+    {assento:"Assento 4", value:50.00},
+    {assento:"Assento 9", value:50.00},
+    {assento:"Assento 10", value:75.00},
+    {assento:"Assento 11", value:75.00},
+    {assento:"Assento 12", value:75.00}
 ];
-carrinho = [{value:0}]
+let valores = "";
+let soma = 0;
+let Carrinho = [];
 
-
-
-let valores = ""
-for (i=0; i < ingressos.length; i++) {
-    valores += "R$"+ingressos[i].value + "  " + ingressos[i].assento +" - "+"<button onclick=\"compra("+i+")\">Comprar</button><br>" 
-}
-document.getElementById("precoIngresso").innerHTML = valores
-
-function compra() {
-    carrinho.push(ingressos[i].value)
-    console.log
-    document.getElementById("carrinhoT").innerHTML = "carrinho de compras" +"<br>";
+function exibirIngressos() {
+    let valoresIngressos = ""
+    for (let i = 0; i < ingressos.length; i++) {
+        valoresIngressos +="R$"+ingressos[i].value+"  "+ingressos[i].assento+" - "+"<button onclick=\"comprar("+i+")\">Comprar</button><br>"; 
+    };
+    document.getElementById("precoIngresso").innerHTML = valoresIngressos;
 };
 
-let soma = 0
-for (i=0;i<ingressos.length;i++) {
-    soma += carrinho[i]
-}
-document.getElementById("valorTotal").innerHTML = soma.toFixed(2);
+function comprar(i) {
+    if (Carrinho.includes(ingressos[i].assento)){
+        // window.alert("Este ingresso já esta no carrinho");
+    } else {
+        soma += ingressos[i].value;
+        valores +="R$"+ingressos[i].value+"  "+ingressos[i].assento+"<br>"; 
+        document.getElementById("carrinho").innerHTML = valores;
+        document.getElementById("valorTotal").innerHTML = soma;
+        Carrinho.push(ingressos[i].assento);
+    };
+};
 
 function pagar() {
-    window.alert ("valor pago, os ingressos foram adicionados a sua biblioteca, obrigado")
-    window.location.href = "file:///C:/Users/MAQ08/Desktop/felipe/gitbash/projetos/Projeto Integrador/Eventos.html"
-}
+    for (i=0;i<Carrinho.length;i++) {
+        if (Carrinho[i].includes(ingressos[i].assento)){
+            
+        }
+    };
+    exibirIngressos()
+    limpar()
+    // window.alert("Valor pago, os ingressos foram adicionados à sua biblioteca. Obrigado!");
+    // window.location.href = "file:///C:/Users/MAQ08/Desktop/felipe/gitbash/projetos/Projeto Integrador/Eventos.html";
+};
+
+function limpar() {
+    document.getElementById("carrinho").innerHTML = "";    
+    document.getElementById("valorTotal").innerHTML = ""
+    valores = "";
+    Carrinho = []
+    soma = 0
+};
 
 </script>    
-</boby>
+</body>
 </html>
