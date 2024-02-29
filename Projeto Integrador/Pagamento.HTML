@@ -19,10 +19,6 @@
         margin-bottom: 10px;
     }
 
-    button:hover {
-        background-color: #0056b3;
-    }
-
     .container1 {
         top: 20px;
         max-width: 400px;
@@ -33,12 +29,25 @@
     }
 
     .conteiner2 {
-        bottom: 100px;
-        max-width: 400px;
+        position: absolute;
+        left: 500px;
+        top: 20px;
+        width: 400px;
         padding: 20px;
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    div.absolutePagar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        height: 100px;
+    }
+    div.absoluteComprar {
+        position: absolute;
+        right: 20px;
     }
 </style>
 
@@ -54,9 +63,8 @@
         <div>Carrinho de Compras</div> <br>
         <div class="static" id="carrinho"></div> <br>
         <div class="relative" id="botaoLimpar"></div> <br>
+        <div class="absolutePagar"id="botaoPagar"></div>
     </div>
-    <div id="botaoPagar"></div>
-
     <script>
         let ingressos = [
             { assento: "Assento 1", value: 39.99 },
@@ -75,7 +83,7 @@
         function exibirIngressos() {
             let valoresIngressos = ""
             for (let i = 0; i < ingressos.length; i++) {
-                valoresIngressos += "R$" + Math.round((ingressos[i].value) * 100) / 100 + "  " + ingressos[i].assento + " - " + "<button onclick=\"comprar(" + i + ")\">Comprar</button><br>";
+                valoresIngressos += ingressos[i].assento + " - " + "<button class=\"absoluteComprar\" onclick=\"comprar(" + i + ")\">" + "R$" + Math.round((ingressos[i].value) * 100) / 100 + "</button><br>";
             };
             document.getElementById("precoIngresso").innerHTML = valoresIngressos;
         };
@@ -85,7 +93,7 @@
             if (Carrinho.includes(ingressos[i].assento)) {
                 window.alert("Este ingresso já esta no carrinho");
             } else {
-                Math.round((soma += ingressos[i].value) * 100) / 100;
+                soma =Math.round((soma += ingressos[i].value) * 100) / 100;
                 valores += "R$" + ingressos[i].value + "  " + ingressos[i].assento + "<br>";
                 document.getElementById("carrinho").innerHTML = valores;
                 document.getElementById("botaoPagar").innerHTML = "<button onclick=\"pagar()\">" + "R$" + soma + "</button>";
